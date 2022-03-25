@@ -1,0 +1,13 @@
+<html>
+<body>
+{% include 'logo.html' %}
+{% include 'membermenu.html' %}
+<br> <br>
+<table align="center" border="0">
+        <tr> <th width="500"> Welcome {{ data.member_name }} </th></tr> <br> <br>
+</table>
+ {% for message in messages %}
+       <h1> {{ message }}</h1>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+</head>
+<body>
+{% include 'logo.html' %}
+<form action="/admincheck/" method="post">
+    {% csrf_token %}
+    {% include 'menu.html' %}
+    <br>
+    <br>
+<table align="center" border="2" bgcolor="#f0f8ff" style="font-family: Aharoni" size="8" style="animation: ease-in">
+    <tr><th> Admin Login </th></tr>
+    <tr><th><input type="text" placeholder="USERNAME" name="uname" required></th></tr>
+    <tr><th><input type="password" placeholder="PASSWORD" name="upass"></th></tr>
+    <tr>
+        <th colspan="2">
+            <button type="submit"> Login </button> </th>
+    </tr>
+</table>
+    </form>
+<center>
+    <font color="red">
+        {% if msg %}
+            {{ msg }}
+        {% endif %}
+            </font>
+</center>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+{% include 'logo.html' %}
+{% include 'adminmenu.html' %}
+    <table align="center" border="2" bgcolor="#f0ffff">
+        <tr> <th> MEMBER ID</th>
+            <th> MEMBER NAME</th>
+            <th> EMAIL ID</th>
+            <th> ADDRESS</th>
+            <th> MOBILE NUMBER</th>
+            <th> Delete</th>
+        </tr>
+        {% for x in object_list %}
+           <tr>
+               <th> {{ x.member_id }}</th>
+               <th> {{ x.member_name }}</th>
+               <th> {{ x.email_id }}</th>
+               <th> {{ x.address }}</th>
+               <th> {{ x.mobile_num }}</th>
+               <th>
+{#                   <a href="/deletemember/?mid={{ x.member_id }}">DELETE</a>#}
+                   <form action="/deletememberid/" method="post">
+                       {% csrf_token %}
+                       <input type="hidden" value="{{ x.member_id}}" name="mid">
+                       <input type="submit" value="DELETE">
+                   </form>
+                </th>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

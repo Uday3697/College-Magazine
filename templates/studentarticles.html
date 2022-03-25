@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Student Articles </title>
+</head>
+<body>
+{% include 'logo.html' %}
+{% include 'membermenu.html'%}
+<h3 align="center">
+    <font color="black"> Post Student Articles </font>
+</h3>
+<table align="center" border="0">
+<tr>
+<td>
+<form method="post">
+    {% csrf_token %}
+<table align="center" border="1">
+    <tr> <th colspan="2"> Type your Article here </th></tr>
+      {{ form }}
+    <tr>
+        <th>
+            <button type="submit"> Save</button>
+        </th>
+        <th>
+            <button type="reset"> Reset</button>
+        </th>
+    </tr>
+</table>
+    </form>
+<br> <br>
+</td>
+<td>
+<table align="center" border="1">
+    <tr> <th colspan="7"> Student Article details </th></tr>
+    <tr>
+        <th>Article ID</th>
+        <th>Category</th>
+        <th>Tag</th>
+        <th>Article</th>
+        <th>Update Article</th>
+        <th>Delete Article</th>
+    </tr>
+    {% for x in object_list %}
+        <tr>
+            <td> {{ x.articleid }}</td>
+            <td> {{ x.category }}</td>
+            <td> {{ x.tag }}</td>
+            <td> {{ x.article }}</td>
+
+            <th><a href="/updatestuarticle{{ x.articleid }}/"> Yes</a> </th>
+            <th>
+            <form action="/deletestuarticle{{ x.articleid }}/" method="post">
+                    {% csrf_token %}
+                    <button type="submit"> Yes </button>
+            </form>
+            </th>
+        </tr>
+    {% endfor %}
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

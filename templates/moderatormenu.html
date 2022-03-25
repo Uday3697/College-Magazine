@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'logo.html' %}
+<table align="left">
+                <tr><td> <a href="/moderatorhome/"> Moderator Home</a>  </td></tr>
+                  <tr>  <td> <a href="/postarticlesmod/"> Post Articles</a></td></tr>
+                        {% for x in data %}
+                   <tr> <td> <a href="/updatemodprofile{{ x.userid }}/"> Update Profile </a> </td></tr>
+                        {% endfor %}
+                  <tr>  <td> <a href="/moderatorlogout/"> Logout</a></td></tr>
+</table>
+</body>
+</html>

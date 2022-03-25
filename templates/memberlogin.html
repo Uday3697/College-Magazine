@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member login</title>
+</head>
+{% include 'logo.html' %}
+{% include 'menu.html' %}
+<br> <br>
+<body>
+<table align="center" border="2" style="font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif">
+    <tr> <th colspan="2"> Member login </th></tr>
+    <form action="/checkmember/" method="post">
+            {% csrf_token %}
+    <tr><th colspan="2"> <input type="number" placeholder="MEMBER ID" name="memberid" required></th></tr>
+    <tr><th colspan="2"> <input type="password" placeholder="PASSWORD" name="mempass" required></th></tr>
+    <tr>
+
+        <th> <button type="submit"> LOGIN</button> </th>
+        </form>
+        <form action="/memberregister/" method="post">
+            {% csrf_token %}
+             <th>
+           <button type="submit"> REGISTER HERE</button>
+             </th>
+        </form>
+    </tr>
+</table>
+<center>
+    <font color="red">
+        {% if msg %}
+            {{ msg }}
+        {% endif %}
+            </font>
+</center>
+</body>
+</html>
